@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme02_Task1", "Theme02_Task1\Theme02_Task1.csproj", "{37BFEC95-01A3-428C-996B-D1E063546A8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme02_Task2", "Theme02_Task2\Theme02_Task2.csproj", "{6C325E6E-C13D-4545-9C08-506122AD27BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,14 @@ Global
 		{37BFEC95-01A3-428C-996B-D1E063546A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37BFEC95-01A3-428C-996B-D1E063546A8D}.Release|x64.ActiveCfg = Release|x64
 		{37BFEC95-01A3-428C-996B-D1E063546A8D}.Release|x64.Build.0 = Release|x64
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Debug|x64.Build.0 = Debug|Any CPU
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Release|x64.ActiveCfg = Release|Any CPU
+		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

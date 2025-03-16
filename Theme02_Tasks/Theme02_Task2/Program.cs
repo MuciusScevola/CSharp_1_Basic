@@ -1,4 +1,4 @@
-﻿namespace Theme02_Task1
+﻿namespace Theme02_Task2
 {
     internal class Program
     {

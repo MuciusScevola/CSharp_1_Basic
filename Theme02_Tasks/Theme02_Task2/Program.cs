@@ -4,16 +4,15 @@
     {
         static void Main(string[] args)
         {
-            int var1, var2, var3;
-            var1 = Convert.ToInt32(Console.ReadLine());
-            var2 = Convert.ToInt32(Console.ReadLine());
-            var3 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Исходные значения: var1 = {var1}, var2 = {var2}, var3 = {var3}");
-            int empty = var1; // Переменная "пустой стакан"
-            var1 = var2;
-            var2 = var3;
-            var3 = empty;
-            Console.WriteLine($"Переприсвоенные значения: var1 = {var1}, var2 = {var2}, var3 = {var3}");
+            double degs, mins, secs;
+            degs = Convert.ToDouble(Console.ReadLine());
+            mins = Convert.ToDouble(Console.ReadLine());
+            secs = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine($"Введенное значение угла: {degs}° {mins}\" {secs}'"); // Значения минут и секунд 
+
+            var rads = Math.PI * (degs + mins / 60 + secs / 3600) / 180; // Перевод градусной меры в радианную
+
+            Console.WriteLine($"Полученное значение угла: {Math.Round(rads, 5)} рад");*/
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();
         }

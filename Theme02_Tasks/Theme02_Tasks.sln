@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme02_Task1", "Theme02_Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme02_Task2", "Theme02_Task2\Theme02_Task2.csproj", "{6C325E6E-C13D-4545-9C08-506122AD27BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme02_Task3", "Theme02_Task3\Theme02_Task3.csproj", "{277AC68D-241B-4B95-8A1E-4E276540EA54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,14 @@ Global
 		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Release|x64.ActiveCfg = Release|Any CPU
 		{6C325E6E-C13D-4545-9C08-506122AD27BE}.Release|x64.Build.0 = Release|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Debug|x64.Build.0 = Debug|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Release|x64.ActiveCfg = Release|Any CPU
+		{277AC68D-241B-4B95-8A1E-4E276540EA54}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

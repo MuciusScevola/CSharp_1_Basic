@@ -8,11 +8,12 @@
             degs = Convert.ToDouble(Console.ReadLine());
             mins = Convert.ToDouble(Console.ReadLine());
             secs = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Введенное значение угла: {degs}° {mins}\" {secs}'"); // При вводе значений, больших 60 минут или секунд, придется вводить цикл.
+            Console.WriteLine($"Введенное значение угла: {degs}° {mins}\" {secs}'"); // При вводе значений минут или секунд, больших 60, придется вводить цикл.
 
             var rads = Math.PI * (degs + mins / 60 + secs / 3600) / 180; // Перевод градусной меры в радианную.
 
             Console.WriteLine($"Полученное значение угла: {Math.Round(rads, 5)} рад");
+
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();
         }

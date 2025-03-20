@@ -15,7 +15,7 @@
             int numberTrans = digit1 * 1000 + digit4 * 100 + digit3 * 10 + digit2;
 
             Console.WriteLine($"Полученное после перемены число: {digit1}{digit4}{digit3}{digit2}"); // Вывод трансчисла без математических операций.
-            /* Console.WriteLine($"Полученное после перемены число: {numberTrans}");*/  // Вывод трансчисла с помощью математических операций.
+            /*Console.WriteLine($"Полученное после перемены число: {numberTrans}");*/  // Вывод трансчисла с помощью математических операций.
 
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();

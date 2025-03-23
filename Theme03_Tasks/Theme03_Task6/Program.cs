@@ -1,4 +1,4 @@
-﻿namespace Theme03_Task6
+﻿namespace Theme03_Task06
 {
     internal class Program
     {
@@ -6,7 +6,7 @@
         {
             int number;
             number = Convert.ToInt32(Console.ReadLine());
-            var evenOdd = (number % 2 == 0) ? "Да - число четное" : "Нет - число нечетное";
+            var evenOdd = (number % 2 == 0) ? "Да - число \"{number}\" четное." : "Нет - число \"{number}\" нечетное.";
             Console.WriteLine(evenOdd);
 
             Console.WriteLine("Нажмите любую клавишу.");

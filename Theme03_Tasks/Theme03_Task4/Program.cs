@@ -9,8 +9,21 @@
             nmr2 = Convert.ToDouble(Console.ReadLine());
             nmr3 = Convert.ToDouble(Console.ReadLine());
 
-            double avrg = (nmr1 + nmr2 + nmr3) / 3;
-            Console.WriteLine(avrg);
+            var maxNmr = Math.Max(nmr1, Math.Max(nmr2, nmr3));
+            var minNmr = Math.Min(nmr1, Math.Min(nmr2, nmr3));
+            if (nmr1 != maxNmr && nmr1 != minNmr)
+            {
+                Console.WriteLine($"Медиана = {nmr1}");
+
+            }
+            else if (nmr2 != maxNmr && nmr2 != minNmr)
+            {
+                Console.WriteLine($"Медиана = {nmr1}");
+            }
+            else {
+                Console.WriteLine($"Медиана = {nmr3}");
+            }
+
 
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();

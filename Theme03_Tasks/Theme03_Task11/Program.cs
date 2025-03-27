@@ -5,74 +5,35 @@
         static void Main(string[] args)
         {
             double a, b, p, q, r, s;
-            Console.Write("Введите длину участка: ");
+            Console.Write("Введите длину участка a: ");
             a = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите ширину участка: ");
+            Console.Write("Введите ширину участка b: ");
             b = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите длину первого дома: ");
+            Console.Write("Введите длину первого дома p: ");
             p = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите ширину первого дома: ");
+            Console.Write("Введите ширину первого дома q: ");
             q = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите длину второго дома: ");
+            Console.Write("Введите длину второго дома r: ");
             r = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите ширину второго дома: ");
+            Console.Write("Введите ширину второго дома s: ");
             s = Convert.ToDouble(Console.ReadLine());
 
-            // Проверка всех комбинаций ориентаций домов
-            bool canPlace = false;
-
+            // За точку отсчета комбинаций размещения и положения нижний левый угол земельного участка.
             // Комбинация 1: (p, q) и (r, s)
-            if (
-                // Размещение в ряд по длине a
-                (p + r <= a && Math.Max(q, s) <= b) ||
-                // Размещение в ряд по ширине b
-                (q + s <= b && Math.Max(p, r) <= a) ||
-                // Размещение углом (p вдоль a, r вдоль b)
-                (p + s <= a && Math.Max(q, r) <= b) ||
-                // Размещение углом (q вдоль b, s вдоль a)
-                (q + r <= b && Math.Max(p, s) <= a) ||
-                // Размещение углом (p вдоль b, r вдоль a)
-                (p + r <= b && Math.Max(q, s) <= a) ||
-                // Размещение углом (q вдоль a, s вдоль b)
-                (q + s <= a && Math.Max(p, r) <= b)
-            )
+            if ((p + r <= a && Math.Max(q, s) <= b) || (p + s <= a && Math.Max(q, r) <= b) // Дом 1 - p по размеру а, дом 2 - r по a (вариант 1), s по a (2)
+                || (q + s <= a && Math.Max(p, r) <= b) || (q + r <= a && Math.Max(p, s) <= b)) // Дом 1 - q по a, дом 2 - r по b (1), s по b (2)
+            {
                 Console.WriteLine("Да");
-
-            // Комбинация 2: (p, q) и (s, r)
-            if (!canPlace && (
-                (p + s <= a && Math.Max(q, r) <= b) ||
-                (q + r <= b && Math.Max(p, s) <= a) ||
-                (p + r <= a && Math.Max(q, s) <= b) ||
-                (q + s <= b && Math.Max(p, r) <= a) ||
-                (p + s <= b && Math.Max(q, r) <= a) ||
-                (q + r <= a && Math.Max(p, s) <= b)
-            )
-                canPlace = true;
-
-            // Комбинация 3: (q, p) и (r, s)
-            if (!canPlace && (
-                (q + r <= a && Math.Max(p, s) <= b) ||
-                (p + s <= b && Math.Max(q, r) <= a) ||
-                (q + s <= a && Math.Max(p, r) <= b) ||
-                (p + r <= b && Math.Max(q, s) <= a) ||
-                (q + r <= b && Math.Max(p, s) <= a) ||
-                (p + s <= a && Math.Max(q, r) <= b)
-            )
-                canPlace = true;
-
-            // Комбинация 4: (q, p) и (s, r)
-            if (!canPlace && (
-                (q + s <= a && Math.Max(p, r) <= b) ||
-                (p + r <= b && Math.Max(q, s) <= a) ||
-                (q + r <= a && Math.Max(p, s) <= b) ||
-                (p + s <= b && Math.Max(q, r) <= a) ||
-                (q + s <= b && Math.Max(p, r) <= a) ||
-                (p + r <= a && Math.Max(q, s) <= b)
-            )
-                canPlace = true;
-
-            // Вывод результата
-            Console.WriteLine(canPlace ? "Да" : "Нет");
+            }
+            else if ((q + s <= b && Math.Max(p, r) <= a) || (q + r <= b && Math.Max(p, s) <= a) // Дом 1 - q по размеру b, дом 2 - r по b (вариант 1), s по b (2)
+                || (p + r <= b && Math.Max(q, s) <= a) || (p + s <= b && Math.Max(q, r) <= a)) // Дом 1 - q по a, дом 2 - r по b (1), s по b (2)
+            {
+                Console.WriteLine("Да");
+            }
+            else
+            {
+                Console.WriteLine("Да");
+            }
 
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();

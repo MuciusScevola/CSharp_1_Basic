@@ -7,38 +7,19 @@
             int number;
             Console.Write("Введите число в диапазоне 100-999: ");
             number = Convert.ToInt32(Console.ReadLine()); ;
-            /*bool isValidNumber = true;*/
-            int hndrs = number / 100;
-            int tns = number / 10;
-            int unts = number % 10;
+            int hundreds = number / 100;
+            int tens = (number / 10) % 10;
+            int units = number % 10;
 
             if (number < 100 || number > 999)
             {
-                        {
-                char c = input[i];
-                if (c < '0' || c > '9')
-                {
-                    isValidNumber = false;
-                    break;
-                }
-                number = number * 10 + (c - '0');
-            }
-
-            if (!isValidNumber)
-            {
-                Console.WriteLine("Ошибка: введено не целое число");
-            }
-            else if (number < 100 || number > 999)
-            {
-                Console.WriteLine("Ошибка: число должно быть в диапазоне 100-999");
+                Console.WriteLine("Ошибка! Введите число в диапазоне 100-999.");
             }
             else
             {
                 int hundreds = number / 100;
                 int tens = (number / 10) % 10;
                 int units = number % 10;
-
-                string description = "";
 
                 // Описание сотен
                 switch (hundreds)

@@ -4,6 +4,11 @@
     {
         static void Main(string[] args)
         {
+            /*
+             Напишите метод ValidateAge, проверяющий корректность возраста. Если возраст:
+            < 0 - выбросить ArgumentException("Возраст не может быть отрицательным"),
+            > 150 - выбросить ArgumentOutOfRangeException("Слишком большой возраст").
+             */
             try
             {
                 Console.Write("Введите возраст: ");
@@ -34,12 +39,12 @@
             {
                 if (age < 0)
                 {
-                    throw new ArgumentException("Возраст не может быть отрицательным");
+                    throw new ArgumentException("Возраст не может быть отрицательным.");
                 }
 
                 if (age > 150)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(age), "Слишком большой возраст");
+                    throw new ArgumentOutOfRangeException(nameof(age), "Слишком большой возраст.");
                 }
             }
         }   

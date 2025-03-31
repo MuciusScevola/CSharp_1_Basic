@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            // Застройщик построил n домов. Вывести фразу «Мы построили n домов»,
+            // обеспечив правильное согласование числа со словом «дом».
             int number = Convert.ToInt32(Console.ReadLine());
 
             int digitLast = number % 10;

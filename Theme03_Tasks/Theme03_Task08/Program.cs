@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            // Вводится число. Вывести «Да», если оно попадает в диапазон [-10,10], и «Нет» в противном случае.
             double number;
             number = Convert.ToDouble(Console.ReadLine());
 

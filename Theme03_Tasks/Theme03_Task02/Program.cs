@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            // Вводятся три числа. Вывести большее их них.
             int nmr1, nmr2, nmr3;
             nmr1 = Convert.ToInt32(Console.ReadLine());
             nmr2 = Convert.ToInt32(Console.ReadLine());

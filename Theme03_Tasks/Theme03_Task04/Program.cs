@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            // Вводятся три разных числа. Вывести медиану – промежуточное по величине число.
             double nmr1, nmr2, nmr3;
             nmr1 = Convert.ToDouble(Console.ReadLine());
             nmr2 = Convert.ToDouble(Console.ReadLine());

@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            // Вводятся два числа. Сравнить их и вывести правильный знак «<», «>» или «=».
             int nmr1, nmr2;
             nmr1 = Convert.ToInt32(Console.ReadLine());
             nmr2 = Convert.ToInt32(Console.ReadLine());

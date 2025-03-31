@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            // Вводится число. Вывести «Да», если оно двухзначное, и «Нет» в противном случае.
             int number;
             number = Convert.ToInt32(Console.ReadLine());
 

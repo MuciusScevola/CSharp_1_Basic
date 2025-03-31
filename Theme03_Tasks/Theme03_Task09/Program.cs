@@ -6,6 +6,7 @@ namespace Theme03_Task09
     {
         static void Main(string[] args)
         {
+            // Вводится число. Вывести «Да», если оно попадает в диапазон(-∞; -10]Ս[10; +∞), и «Нет» в противном случае.
             Console.OutputEncoding = Encoding.Unicode;
 
             double number;

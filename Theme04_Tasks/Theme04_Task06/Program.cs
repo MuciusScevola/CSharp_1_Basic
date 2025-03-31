@@ -8,7 +8,7 @@
             Console.Write("Введите число: ");
             int number = Convert.ToInt32(Console.ReadLine());
             int numInput = number; // Чтобы вывести введенное число.
-            while (number % 2 == 0 && number != 0) // Пока число четное.
+            while (number % 2 == 0) // Пока число четное.
             {
                 number /= 2; // Делим его на 2.
             }

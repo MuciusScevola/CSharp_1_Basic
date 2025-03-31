@@ -5,8 +5,6 @@
         static void Main(string[] args)
         {
             // Запрашивать у пользователя число до тех пор, пока он не введет число из диапазона [20; 60]
-            Console.Write("Введите число из диапазона [20, 60]: ");
-            
             bool inRange = true;
             while (inRange)
             {

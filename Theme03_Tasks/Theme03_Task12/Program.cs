@@ -4,6 +4,11 @@
     {
         static void Main(string[] args)
         {
+            /*
+            Дано целое число в диапазоне 100–999.
+            Вывести строку - описание словесное описание данного числа.
+            Если пользователь введёт данные, не соответствующие условию задачи - выдать сообщение об ошибке.
+            */
             int number;
             Console.Write("Введите число в диапазоне 100-999: ");
             number = Convert.ToInt32(Console.ReadLine()); ;
@@ -17,11 +22,6 @@
             }
             else
             {
-                int hundreds = number / 100;
-                int tens = (number / 10) % 10;
-                int units = number % 10;
-
-                // Описание сотен
                 switch (hundreds)
                 {
                     case 1: description = "сто"; break;
@@ -38,7 +38,7 @@
                 // Описание десятков и единиц
                 if (tens == 1)
                 {
-                    string teens = "";
+                    string tens = "";
                     switch (units)
                     {
                         case 0: teens = "десять"; break;

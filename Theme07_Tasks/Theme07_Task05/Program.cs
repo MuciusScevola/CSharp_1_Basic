@@ -7,8 +7,15 @@
             /* Напишите перегруженные методы Multiply,
              * которые могут умножать два числа (целые или дробные) и возвращать результат.
             */
-            
-            Console.WriteLine("Hello, World!");
+            int a1 = Convert.ToInt32(Console.ReadLine());
+            int b1 = Convert.ToInt32(Console.ReadLine());
+            var result1 = Multiply(a1, b1);
+            Console.WriteLine($"{a1} + {b1} = {result1}");
+
+            double a2 = Convert.ToDouble(Console.ReadLine());
+            double b2 = Convert.ToDouble(Console.ReadLine());
+            var result2 = Multiply(a2, b2);
+            Console.WriteLine($"{a1} + {b1} = {result2}");
         }
         static int Multiply(int a, int b)
         {

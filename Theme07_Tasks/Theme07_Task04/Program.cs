@@ -2,13 +2,15 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             /* Напишите метод FindMax, который принимает переменное количество чисел 
              * и возвращает максимальное значение. Используйте ключевое слово params.
             */
             Console.WriteLine("Введите числа через пробел: ");
-            int[] numbers = Console.ReadLine().Split().Select(int.Parse).ToArray(); // Создание массива через ввод с клавиатуры.
+            string[] inArray = Console.ReadLine().Split();
+            int[] numbers = Array.ConvertAll(inArray, int.Parse);
+
             int resultMax = FindMax(numbers);
             Console.WriteLine($"Максимальное число = {resultMax}");
 

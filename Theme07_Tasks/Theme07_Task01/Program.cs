@@ -2,25 +2,41 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             /* Два треугольника заданы длинами своих сторон.
              * Определите, площадь какого из них больше
              * (создайте метод Square для вычисления площади треугольника по длинам его сторон).
             */
-            double a1 = Convert.ToDouble(Console.ReadLine());
-            double b1 = Convert.ToDouble(Console.ReadLine());
-            double c1 = Convert.ToDouble(Console.ReadLine());
-            double a2 = Convert.ToDouble(Console.ReadLine());
-            double b2 = Convert.ToDouble(Console.ReadLine());
-            double c2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите длины сторон первого треугольника через пробел a1, b1, c1: ");
+            string[] edgesFrt = Console.ReadLine().Split(); // Ввод значений одной строкой через пробелы.
+            
+            double a1 = double.Parse(edgesFrt[0]);
+            double b1 = double.Parse(edgesFrt[1]);
+            double c1 = double.Parse(edgesFrt[2]);
+
+            Console.Write("Введите длины сторон второго треугольника через пробел a2, b2, c2: ");
+            string[] edgesSnd = Console.ReadLine().Split();
+
+            double a2 = double.Parse(edgesSnd[0]);
+            double b2 = double.Parse(edgesSnd[1]);
+            double c2 = double.Parse(edgesSnd[2]);
+
             double square1 = Square(a1, b1, c1);
             double square2 = Square(a2, b2, c2);
 
-            Console.WriteLine();
-
-
-            Console.WriteLine();
+            if (square1 > square2)
+            {
+                Console.WriteLine("Площадь первого треугольника больше.");
+            }
+            else if (square2 > square1)
+            {
+                Console.WriteLine("Площадь второго треугольника больше.");
+            }
+            else
+            {
+                Console.WriteLine("Площади треугольников равны.");
+            }
 
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();

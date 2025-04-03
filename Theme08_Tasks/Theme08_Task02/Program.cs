@@ -14,8 +14,8 @@
                 Console.Write("Введите возраст: ");
                 int age = Convert.ToInt32(Console.ReadLine());
 
-                AgeValidator.ValidateAge(age);
-                Console.WriteLine($"Введённый возраст корректен: {age} лет");
+                ValidateAge(age);
+                Console.WriteLine($"Возраст: {age}. Корректный.");
             }
             catch (FormatException)
             {
@@ -32,22 +32,19 @@
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();
         }
-
-        public class AgeValidator
+        public static void ValidateAge(int age)
         {
-            public static void ValidateAge(int age)
+            if (age < 0)
             {
-                if (age < 0)
-                {
-                    throw new ArgumentException("Возраст не может быть отрицательным.");
-                }
-
-                if (age > 150)
-                {
-                    throw new ArgumentOutOfRangeException(nameof(age), "Слишком большой возраст.");
-                }
+                throw new ArgumentException("Возраст не может быть отрицательным.");
             }
-        }   
+
+            if (age > 150)
+            {
+                throw new ArgumentOutOfRangeException("Слишком большой возраст.");
+            }
+        }
+
     }
 }
 

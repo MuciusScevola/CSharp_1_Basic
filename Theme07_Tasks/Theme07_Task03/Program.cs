@@ -12,11 +12,11 @@
             string[] inArray = Console.ReadLine().Split();
             int[] numbers = Array.ConvertAll(inArray, int.Parse);
             */
-            int[] numbers = { 1, 2, 3, 4, 5 };
+            int[] numbers = { 1, 2, 3, 4, 5 }; // Тестовый массив.
 
-            Console.WriteLine($"Исходный массив: {numbers}");
+            Console.WriteLine($"Исходный массив: ");
             PrintNumbers(numbers);
-            Console.WriteLine($"\nПеревернутый массив:");
+            Console.WriteLine($"\nПеревернутый массив: ");
             PrintNumbers(numbers, true);
 
             Console.WriteLine("\nНажмите любую клавишу.");
@@ -29,15 +29,7 @@
             {
                 Array.Reverse(numbers);
             }
-            else
-            {
-                foreach (int n in numbers)
-                {
-                    Console.Write(n);
-                }
-
-            }
-            Console.WriteLine();
+            Console.WriteLine(string.Join(" ", numbers));
         }
     }
 }

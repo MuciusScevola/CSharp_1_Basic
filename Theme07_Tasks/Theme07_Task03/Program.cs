@@ -25,11 +25,27 @@
 
         static void PrintNumbers(int[] numbers, bool reverse = false)
         {
-            if (reverse)
+            // Реверс массива.
+            /* if (reverse)
             {
                 Array.Reverse(numbers);
             }
-            Console.WriteLine(string.Join(" ", numbers));
+            Console.WriteLine(string.Join(" ", numbers));*/
+            // Ввыод массива в обратном порядке.
+            if (reverse)
+            {
+                for (int i = numbers.Length - 1; i >= 0; i--)
+                {
+                    Console.WriteLine(numbers[i]);
+                }
+            }
+            else
+            {
+                foreach (int number in numbers)
+                {
+                    Console.WriteLine(number);
+                }
+            }
         }
     }
 }

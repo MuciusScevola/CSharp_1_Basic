@@ -7,17 +7,24 @@
             // Сформировать одномерный массив из 10 случайных чисел из диапазона [0, 100].
             // Определить, каких чисел больше – четных или нечетных.
             const int n = 10;
-            int[] array = new int[n];
+            int[] arr = new int[n];
             Random rnd = new Random();
-            int s = 0;
+
+            int countEven = 0; // Счетчик четных чисел.
             for (int i = 0; i < n; i++)
             {
-                array[i] = rnd.Next(0, 101);
-                s += array[i];
-                Console.WriteLine($"{array[i]}");
+                arr[i] = rnd.Next(0, 101);
+                Console.Write(arr[i]);
+                Console.Write(i < arr.Length - 1 ? " | " : "");
+                if (arr[i] % 2 == 0) countEven++;
             }
+            int countOdd = n - countEven; // Счетчик нечетных чисел.
+            if (countEven > countOdd) { Console.WriteLine("\nЧетных чисел больше."); }
+            else if (countEven < countOdd) { Console.WriteLine("\nНечетных чисел больше."); }
+            else { Console.WriteLine("\nКоличество четных и нечетных чисел равно."); }
 
 
+            Console.WriteLine();
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();
         }

@@ -18,10 +18,11 @@
                 Console.Write(i < arr.Length - 1 ? " | " : "");
                 if (arr[i] % 2 == 0) countEven++;
             }
+            Console.WriteLine();
             int countOdd = n - countEven; // Счетчик нечетных чисел.
-            if (countEven > countOdd) { Console.WriteLine("\nЧетных чисел больше."); }
-            else if (countEven < countOdd) { Console.WriteLine("\nНечетных чисел больше."); }
-            else { Console.WriteLine("\nКоличество четных и нечетных чисел равно."); }
+            if (countEven > countOdd) { Console.WriteLine("Четных чисел больше."); }
+            else if (countEven < countOdd) { Console.WriteLine("Нечетных чисел больше."); }
+            else { Console.WriteLine("Количество четных и нечетных чисел равно."); }
 
 
             Console.WriteLine();

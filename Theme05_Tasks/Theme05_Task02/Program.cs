@@ -26,11 +26,9 @@
             Console.WriteLine($"Количество положительныех чисел: {countNeg}.");
             Console.WriteLine($"Количество нулевых чисел: {countZero}.");
 
-
             Console.WriteLine();
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();
-
         }
     }
 }

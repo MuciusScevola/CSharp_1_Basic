@@ -16,22 +16,30 @@
                 Console.Write(arr[i]);
                 Console.Write(i < arr.Length - 1 ? " | " : "");
             }
-            int numMax = arr[0]; // Максимум.
-            //int numMin = 0; // Минимум.
-            foreach (int unit in arr)
+
+            int arrMax = arr[0]; // Максимум.
+            int arrMin = arr[0]; // Минимум.
+            int maxIndex = 0; // Индекс максимума.
+            int minIndex = 0; // Индекс минимума.
+
+            for (int i = 1; i < arr.Length; i++)
             {
-                if (unit > numMax)
+                if (arr[i] > arrMax)
                 {
-                    numMax = unit;
+                    arrMax = arr[i];
+                    maxIndex = i;
+                }
+
+                if (arr[i] < arrMin)
+                {
+                    arrMin = arr[i];
+                    minIndex = i;
                 }
             }
-            ////if (arr[i] > 0) countPos++;
-            //else if (arr[i] < 0) countNeg++;
-            //int countZero = n - countPos - countNeg; // Счетчик нулевых чисел.
-            Console.WriteLine($"\nМаксимум: {numMax}.");
-            //Console.WriteLine($"\nКоличество положительныех чисел: {countNeg}.");
 
-            //Console.WriteLine();
+            Console.WriteLine($"\nМаксимальный элемент: {arrMax} (индекс: {maxIndex})");
+            Console.WriteLine($"\nМинимальный элемент: {arrMin} (индекс: {minIndex})");
+
             Console.WriteLine("Нажмите любую клавишу.");
             Console.ReadKey();
         }

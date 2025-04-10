@@ -13,18 +13,20 @@
             const int n = 5;
             int[,] arr = new int[n, n];
 
-            Console.WriteLine($"Матрица {n}x{n} из 0 и 1");
+            Console.WriteLine($"Матрица {n}x{n} из 0 и 1:");
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    arr[i, j] = i == j ? 0 : 1;
+                    arr[i, j] = (i + j) % 2 == 0 ? 0 : 1;
                     Console.Write(arr[i, j]);
+                    if (j < n - 1)
+                        Console.Write(" ");
                 }
                 Console.WriteLine();
             }
 
-            Console.WriteLine("\n\nНажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

@@ -21,13 +21,12 @@
                 else if (arr[i] < 0) countNeg++;
             }
             Console.WriteLine();
-            int countZero = n - countPos - countNeg; // Счетчик нулевых чисел.
+            int countZero = n - (countPos + countNeg); // Счетчик нулевых чисел.
             Console.WriteLine($"Количество положительныех чисел: {countPos}.");
             Console.WriteLine($"Количество положительныех чисел: {countNeg}.");
             Console.WriteLine($"Количество нулевых чисел: {countZero}.");
 
-            Console.WriteLine();
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

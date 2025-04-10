@@ -29,7 +29,6 @@
                     arrMax = arr[i];
                     maxIndex = i;
                 }
-
                 if (arr[i] < arrMin)
                 {
                     arrMin = arr[i];
@@ -37,10 +36,10 @@
                 }
             }
 
-            Console.WriteLine($"\nМаксимальный элемент: {arrMax} (индекс: {maxIndex})");
-            Console.WriteLine($"\nМинимальный элемент: {arrMin} (индекс: {minIndex})");
+            Console.WriteLine($"\nМаксимум: {arrMax} (индекс: {maxIndex})");
+            Console.WriteLine($"Минимум: {arrMin} (индекс: {minIndex})");
 
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

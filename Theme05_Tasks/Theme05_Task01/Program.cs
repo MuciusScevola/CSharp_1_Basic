@@ -24,9 +24,7 @@
             else if (countEven < countOdd) { Console.WriteLine("Нечетных чисел больше."); }
             else { Console.WriteLine("Количество четных и нечетных чисел равно."); }
 
-
-            Console.WriteLine();
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

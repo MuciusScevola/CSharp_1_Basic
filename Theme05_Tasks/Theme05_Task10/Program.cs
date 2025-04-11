@@ -7,24 +7,38 @@
             //Клеточное поле размером n*n(n – константа на ваш выбор) состоит из 0 («ноликов») и 1 («крестиков»).
             //Проверить, выиграли ли «крестики»?
             //Считается, что «крестики» выиграли, если на поле найдется горизонталь, вертикали или диагональ из «крестиков».
-            // Размер поля (можно изменить)
-            const int N = 3;
+            // Размер поля можно изменить.
+            const int n = 3; // Размер поля (можно изменить)
+            int[,] field = new int[n, n];
+            Random random = new Random();
 
-            // Игровое поле (можно изменить для тестирования)
-            int[,] field = new int[N, N]
+            // Заполняем поле случайными 0 и 1
+            for (int i = 0; i < n; i++)
             {
-            {1, 0, 1},
-            {0, 1, 0},
-            {1, 0, 1}
-            };
+                for (int j = 0; j < n; j++)
+                {
+                    field[i, j] = random.Next(0, 2);
+                }
+            }
+
+            // Выводим поле на экран
+            Console.WriteLine("Поле:");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(field[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
 
             bool xWins = false;
 
-            // Проверка горизонталей
-            for (int i = 0; i < N; i++)
+            // Проверяем горизонтали
+            for (int i = 0; i < n; i++)
             {
                 bool rowWin = true;
-                for (int j = 0; j < N; j++)
+                for (int j = 0; j < n; j++)
                 {
                     if (field[i, j] != 1)
                     {
@@ -35,15 +49,15 @@
                 if (rowWin)
                 {
                     xWins = true;
-                    goto Result; // Переход к выводу результата
+                    goto EndCheck;
                 }
             }
 
-            // Проверка вертикалей
-            for (int j = 0; j < N; j++)
+            // Проверяем вертикали
+            for (int j = 0; j < n; j++)
             {
                 bool colWin = true;
-                for (int i = 0; i < N; i++)
+                for (int i = 0; i < n; i++)
                 {
                     if (field[i, j] != 1)
                     {
@@ -54,44 +68,47 @@
                 if (colWin)
                 {
                     xWins = true;
-                    goto Result; // Переход к выводу результата
+                    goto EndCheck;
                 }
             }
 
-            // Проверка главной диагонали
-            bool mainDiagWin = true;
-            for (int i = 0; i < N; i++)
+            // Проверяем главную диагональ
+            bool diag1Win = true;
+            for (int i = 0; i < n; i++)
             {
                 if (field[i, i] != 1)
                 {
-                    mainDiagWin = false;
+                    diag1Win = false;
                     break;
                 }
             }
-            if (mainDiagWin)
+            if (diag1Win)
             {
                 xWins = true;
-                goto Result; // Переход к выводу результата
+                goto EndCheck;
             }
 
-            // Проверка побочной диагонали
-            bool antiDiagWin = true;
-            for (int i = 0; i < N; i++)
+            // Проверяем побочную диагональ
+            bool diag2Win = true;
+            for (int i = 0; i < n; i++)
             {
-                if (field[i, N - 1 - i] != 1)
+                if (field[i, n - 1 - i] != 1)
                 {
-                    antiDiagWin = false;
+                    diag2Win = false;
                     break;
                 }
             }
-            if (antiDiagWin)
+            if (diag2Win)
             {
                 xWins = true;
+                goto EndCheck;
             }
 
-        Result:
-            Console.WriteLine("Крестики " + (xWins ? "выиграли!" : "не выиграли."));
-    
-    }
+        EndCheck:
+            Console.WriteLine(xWins ? "Крестики выиграли!" : "Крестики не выиграли.");
+
+            Console.WriteLine("\n\nНажмите любую клавишу.");
+            Console.ReadKey();
+        }
     }
 }

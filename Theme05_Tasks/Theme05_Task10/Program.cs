@@ -8,34 +8,44 @@
             //Проверить, выиграли ли «крестики»?
             //Считается, что «крестики» выиграли, если на поле найдется горизонталь, вертикали или диагональ из «крестиков».
             // Размер поля можно изменить.
-            const int n = 3; // Размер поля (можно изменить)
+            const int n = 3;
             int[,] field = new int[n, n];
             Random random = new Random();
 
-            // Заполняем поле случайными 0 и 1
+            int cells = n * n; // Общее количество клеток.
+            int crosses = cells / 2 + cells % 2; // Крестиков на 1 больше при нечетном количестве клеток.
+            int zeros = cells - crosses;
+
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    field[i, j] = random.Next(0, 2);
+                    if (random.Next(0, 2) == 0 && crosses > 0)
+                    {
+                        field[i, j] = 1;
+                        crosses--;
+                    }
+                    else
+                    {
+                        field[i, j] = 0;
+                        zeros--;
+                    }
                 }
             }
 
-            // Выводим поле на экран
-            Console.WriteLine("Поле:");
+            Console.WriteLine("Крестики-нолики:");
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    Console.Write(field[i, j] + " ");
+                    Console.Write(field[i, j] == 1 ? " X" : " O");
                 }
                 Console.WriteLine();
             }
 
-            bool xWins = false;
+            bool xWins = false; // Проверка "крестики в линию".
 
-            // Проверяем горизонтали
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n && !xWins; i++) //Проверка строк.
             {
                 bool rowWin = true;
                 for (int j = 0; j < n; j++)
@@ -46,68 +56,54 @@
                         break;
                     }
                 }
-                if (rowWin)
-                {
-                    xWins = true;
-                    goto EndCheck;
-                }
+                xWins = rowWin;
             }
 
-            // Проверяем вертикали
-            for (int j = 0; j < n; j++)
+            for (int j = 0; j < n; j++) //Проверка столбцов.
             {
-                bool colWin = true;
+                bool columnWin = true;
                 for (int i = 0; i < n; i++)
                 {
                     if (field[i, j] != 1)
                     {
-                        colWin = false;
+                        columnWin = false;
                         break;
                     }
                 }
-                if (colWin)
+                xWins = columnWin;
+            }
+
+            if (!xWins) //Проверка главной диагонали.
+            {
+                bool diagMainWin = true;
+                for (int i = 0; i < n; i++)
                 {
-                    xWins = true;
-                    goto EndCheck;
+                    if (field[i, i] != 1)
+                    {
+                        diagMainWin = false;
+                        break;
+                    }
+                }
+                xWins = diagMainWin;
+            }
+
+            if (!xWins) //Проверка побочной диагонали.
+            {
+                bool diagSideWin = true;
+                for (int i = 0; i < n; i++)
+                {
+                    if (field[i, n - 1 - i] != 1)
+                    {
+                        diagSideWin = false;
+                        break;
+                    }
+                    xWins = diagSideWin;
                 }
             }
 
-            // Проверяем главную диагональ
-            bool diag1Win = true;
-            for (int i = 0; i < n; i++)
-            {
-                if (field[i, i] != 1)
-                {
-                    diag1Win = false;
-                    break;
-                }
-            }
-            if (diag1Win)
-            {
-                xWins = true;
-                goto EndCheck;
-            }
-
-            // Проверяем побочную диагональ
-            bool diag2Win = true;
-            for (int i = 0; i < n; i++)
-            {
-                if (field[i, n - 1 - i] != 1)
-                {
-                    diag2Win = false;
-                    break;
-                }
-            }
-            if (diag2Win)
-            {
-                xWins = true;
-                goto EndCheck;
-            }
-
-        EndCheck:
             Console.WriteLine(xWins ? "Крестики выиграли!" : "Крестики не выиграли.");
-
-            Console.WriteLine("\n\nНажмите любую клавишу.");
+            
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

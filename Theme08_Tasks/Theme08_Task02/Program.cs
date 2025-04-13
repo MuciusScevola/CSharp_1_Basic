@@ -15,34 +15,31 @@
                 int age = Convert.ToInt32(Console.ReadLine());
 
                 ValidateAge(age);
-                Console.WriteLine($"Возраст: {age}. Корректный.");
+                Console.WriteLine($"Введен корректный возраст: {age}.");
             }
             catch (FormatException)
             {
-                Console.WriteLine("Ошибка: Введено нечисловое значение.");
+                Console.WriteLine("ОШИБКА: Введено не число.");
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                Console.WriteLine($"Ошибка: {ex.Message}");
+                Console.WriteLine($"ОШИБКА: {ex.Message}");
             }
             catch (ArgumentException ex)
             {
-                Console.WriteLine($"Ошибка: {ex.Message}");
+                Console.WriteLine($"ОШИБКА: {ex.Message}");
             }
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
         public static void ValidateAge(int age)
         {
             if (age < 0)
-            {
                 throw new ArgumentException("Возраст не может быть отрицательным.");
-            }
 
             if (age > 150)
-            {
                 throw new ArgumentOutOfRangeException("Слишком большой возраст.");
-            }
+
         }
 
     }

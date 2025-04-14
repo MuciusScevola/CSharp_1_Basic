@@ -10,7 +10,19 @@
             Console.WriteLine("Введите предложение:");
             string input = Console.ReadLine();
 
+            string[] words = input.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
+            string wordLongest = words[0]; //Инициализация переменной длинного слова первым словом в предложении.
+            foreach (string word in words)
+                {
+                if (word.Length > wordLongest.Length)
+                    wordLongest = word;
+            }
+
+            Console.WriteLine($"Самое длинное слово: \"{wordLongest}\" (длина: {wordLongest.Length}).");
+
+            Console.WriteLine("\nНажмите любую клавишу.");
+            Console.ReadKey();
         }
     }
 }

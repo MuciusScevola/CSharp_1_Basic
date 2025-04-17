@@ -20,7 +20,7 @@ namespace Theme06_Task06
 
             do
             {
-                Console.WriteLine("Введите пароль (минимум 14 символов, должен содержать цифру, заглавную и строчную буквы, и специальный символ !#;%:?*):");
+                Console.WriteLine("Введите пароль (минимум 14 символов, должен содержать цифру, заглавную, строчную буквы и специальный символ !#;%:?*):");
                 password = Console.ReadLine();
 
                 isValid = passwordRegex.IsMatch(password);

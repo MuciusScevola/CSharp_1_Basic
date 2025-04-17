@@ -12,13 +12,10 @@ namespace Theme06_Task5
             string phone = "+7(123)456-78-90";
 
             if (Regex.IsMatch(phone, pattern))
-            {
                 Console.WriteLine("Номер телефона корректный");
-            }
             else
-            {
                 Console.WriteLine("Номер телефона некорректный");
-            }
+
         }
     }
 }

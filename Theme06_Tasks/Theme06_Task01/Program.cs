@@ -10,9 +10,9 @@
             Console.WriteLine("Введите предложение:");
             string input = Console.ReadLine();
 
-            string[] words = input.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = input.Trim().Split(' ');
 
-            string wordLongest = words[0]; //Инициализация переменной длинного слова первым словом в предложении.
+            string wordLongest = words[0];
             foreach (string word in words)
                 {
                 if (word.Length > wordLongest.Length)

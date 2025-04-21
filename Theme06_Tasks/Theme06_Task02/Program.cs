@@ -9,7 +9,7 @@
             Console.WriteLine("Введите предложение:");
             string input = Console.ReadLine();
 
-            string sentenceAnalised = input.Replace(" ", "").ToLower(); //Приведение предложения к форме, которую можно анализировать.
+            string sentenceAnalised = input.Replace(" ", "").ToLower(); //Получение сплошной строки.
 
             bool isPalindrome = true;
             int left = 0;

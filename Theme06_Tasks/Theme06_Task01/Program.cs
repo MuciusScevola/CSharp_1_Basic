@@ -10,9 +10,9 @@
             Console.WriteLine("Введите предложение:");
             string input = Console.ReadLine();
 
-            string[] words = input.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = input.Split(new[] {''}, StringSplitOptions.RemoveEmptyEntries);
 
-            string wordLongest = words[0];
+            string wordLongest = '';
             foreach (string word in words)
                 {
                 if (word.Length > wordLongest.Length)

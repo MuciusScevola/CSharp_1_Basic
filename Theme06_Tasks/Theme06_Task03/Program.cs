@@ -12,31 +12,38 @@
             //Средняя стоимость одного товара.
             //Общая сумма продаж должна быть отформатирована как денежная величина (с разделителями тысяч и двумя знаками после запятой).
             //Средняя стоимость товара должна быть округлена до двух знаков после запятой.
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            //Console.Write("Отчётный месяц: ");
+            //string month = Console.ReadLine();
+            //Console.Write("Отчётный год: ");
+            //string year = Console.ReadLine();
+            //Console.Write("Общая сумма продаж: ");
+            //decimal sales = Convert.ToDecimal(Console.ReadLine());
+            //Console.Write("Количество проданных товаров: ");
+            //int units = Convert.ToInt32(Console.ReadLine());
+
             string month = "Май";
-            int year = 2023;
-            decimal totalSales = 1234567.89m;
-            int itemsSold = 42;
+            string year = "2023";
+            decimal sales = 1234567.89M;
+            int units = 1050;
 
-            // Вычисления
-            decimal averagePrice = totalSales / itemsSold;
+            decimal averagePrice = Math.Round(sales / units, 2);
+            
+            string frame = new String('-', 15);
 
-            // Форматирование данных
-            string formattedTotalSales = totalSales.ToString("N2");
-            string formattedAveragePrice = Math.Round(averagePrice, 2).ToString("0.00");
+            Console.WriteLine(frame);
+            Console.WriteLine($"Отчёт о продажах за {month} {year}");
+            Console.WriteLine(frame);
+            Console.WriteLine($"Общая сумма продаж: {sales:C2}");
+            Console.WriteLine($"Количество проданных товаров: {units:N0} шт.");
+            Console.WriteLine($"Средняя стоимость одного товара: {averagePrice:0.00} ₽");
+            Console.WriteLine(frame);
 
-            // Создание отчёта
-            string reportTitle = $"Отчёт о продажах за {month} {year}";
-            string salesInfo = $"Общая сумма продаж: {formattedTotalSales}";
-            string itemsInfo = $"Количество проданных товаров: {itemsSold}";
-            string averageInfo = $"Средняя стоимость одного товара: {formattedAveragePrice}";
-
-            // Вывод отчёта
-            Console.WriteLine(reportTitle);
-            Console.WriteLine(salesInfo);
-            Console.WriteLine(itemsInfo);
-            Console.WriteLine(averageInfo);
+            Console.WriteLine("\nНажмите любую клавишу.");
+            Console.ReadKey();
         }
     }
 }
-    }
-}
+ 

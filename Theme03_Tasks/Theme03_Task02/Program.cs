@@ -6,8 +6,11 @@
         {
             // Вводятся три числа. Вывести большее их них.
             int nmr1, nmr2, nmr3;
+            Console.WriteLine("Введите первое число:");
             nmr1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите второе число:");
             nmr2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите третье число:");
             nmr3 = Convert.ToInt32(Console.ReadLine());
 
             if (nmr1 >= nmr2 && nmr1 >= nmr3)
@@ -35,7 +38,7 @@
                 Console.WriteLine($"Максимум = {nmr3}");
             }
             
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

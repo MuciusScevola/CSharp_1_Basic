@@ -6,6 +6,7 @@
         {
             // Застройщик построил n домов. Вывести фразу «Мы построили n домов»,
             // обеспечив правильное согласование числа со словом «дом».
+            Console.Write("Введите количество построенных домов: ");
             int number = Convert.ToInt32(Console.ReadLine());
 
             int digitLast = number % 10;
@@ -32,7 +33,7 @@
                         break;
                 }
             }
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

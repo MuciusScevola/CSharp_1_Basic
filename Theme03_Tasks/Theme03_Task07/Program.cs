@@ -6,6 +6,7 @@
         {
             // Вводится число. Вывести «Да», если оно двухзначное, и «Нет» в противном случае.
             int number;
+            Console.Write("Введите число: ");
             number = Convert.ToInt32(Console.ReadLine());
 
             if (Math.Abs(number) > 9 && Math.Abs(number) < 100)
@@ -17,7 +18,7 @@
                 Console.WriteLine($"Нет - число \"{number}\" не двухзначное.");
             }
 
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

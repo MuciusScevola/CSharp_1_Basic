@@ -6,8 +6,11 @@
         {
             // Вводятся три разных числа. Вывести медиану – промежуточное по величине число.
             double nmr1, nmr2, nmr3;
+            Console.WriteLine("Введите первое число:");
             nmr1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите второе число:");
             nmr2 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите третье число:");
             nmr3 = Convert.ToDouble(Console.ReadLine());
 
             var maxNmr = Math.Max(nmr1, Math.Max(nmr2, nmr3));
@@ -26,7 +29,7 @@
             }
 
 
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

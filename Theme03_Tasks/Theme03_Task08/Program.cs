@@ -6,6 +6,7 @@
         {
             // Вводится число. Вывести «Да», если оно попадает в диапазон [-10,10], и «Нет» в противном случае.
             double number;
+            Console.Write("Введите число: ");
             number = Convert.ToDouble(Console.ReadLine());
 
             if (number < -10 || number > 10)
@@ -17,7 +18,7 @@
                 Console.WriteLine($"Да - число \"{number}\" попадает в диапазон [-10, 10].");
             }
 
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }

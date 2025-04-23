@@ -25,16 +25,16 @@
             if ((p + r <= a && Math.Max(q, s) <= b) || (p + s <= a && Math.Max(q, r) <= b) // Дом 1 - p по размеру а, дом 2 - r по a (вариант 1), s по a (2)
                 || (q + s <= a && Math.Max(p, r) <= b) || (q + r <= a && Math.Max(p, s) <= b)) // Дом 1 - q по a, дом 2 - r по b (1), s по b (2)
             {
-                Console.WriteLine("Да");
+                Console.WriteLine("Да.");
             }
             else if ((q + s <= b && Math.Max(p, r) <= a) || (q + r <= b && Math.Max(p, s) <= a) // Дом 1 - q по размеру b, дом 2 - r по b (вариант 1), s по b (2)
                 || (p + r <= b && Math.Max(q, s) <= a) || (p + s <= b && Math.Max(q, r) <= a)) // Дом 1 - q по a, дом 2 - r по b (1), s по b (2)
             {
-                Console.WriteLine("Да");
+                Console.WriteLine("Да.");
             }
             else
             {
-                Console.WriteLine("Да");
+                Console.WriteLine("Нет.");
             }
 
             Console.WriteLine("\nНажмите любую клавишу.");

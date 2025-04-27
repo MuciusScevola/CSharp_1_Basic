@@ -17,9 +17,7 @@ namespace Theme03_Task12
 
             // Проверка на ошибки.
             if (number < 100 || number > 999)
-            {
                 Console.WriteLine("Ошибка! Введите число в диапазоне 100-999.");
-            }
 
             // Разбивка введенного числа на цифры.
             int hundreds = number / 100;
@@ -93,7 +91,7 @@ namespace Theme03_Task12
             }
 
             Console.WriteLine($"{number} — «{hundredD}" + $"{(tens != 0 ? " " + tenD : "")}" + $"{(units != 0 && tens != 1 ? " " + unitD : "")}».");
-            
+
             Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }

@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Вводится число. Вывести «Да», если оно четное, и «Нет» в противном случае.
             int number;

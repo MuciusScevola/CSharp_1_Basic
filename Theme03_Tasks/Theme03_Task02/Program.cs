@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Вводятся три числа. Вывести большее их них.
             int nmr1, nmr2, nmr3;

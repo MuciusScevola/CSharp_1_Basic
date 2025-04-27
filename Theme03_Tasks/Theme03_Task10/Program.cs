@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Застройщик построил n домов. Вывести фразу «Мы построили n домов»,
             // обеспечив правильное согласование числа со словом «дом».

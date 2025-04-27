@@ -4,7 +4,7 @@ namespace Theme03_Task09
 {
     internal class Program
     {
-        static void Main(string[] arg)
+        static void Main()
         {
             // Вводится число. Вывести «Да», если оно попадает в диапазон(-∞; -10]Ս[10; +∞), и «Нет» в противном случае.
             Console.OutputEncoding = Encoding.Unicode;

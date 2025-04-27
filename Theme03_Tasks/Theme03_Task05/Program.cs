@@ -3,7 +3,7 @@ namespace Theme03_Task05
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Вводится число. Вывести «Да», если оно оканчивается на 0, и «Нет» в противном случае.
             int number;

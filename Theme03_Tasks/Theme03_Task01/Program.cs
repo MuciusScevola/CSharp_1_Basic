@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Вводятся два числа. Сравнить их и вывести правильный знак «<», «>» или «=».
             int nmr1, nmr2;

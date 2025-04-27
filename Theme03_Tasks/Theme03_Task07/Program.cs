@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Вводится число. Вывести «Да», если оно двухзначное, и «Нет» в противном случае.
             int number;

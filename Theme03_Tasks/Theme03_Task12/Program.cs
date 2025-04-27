@@ -1,177 +1,101 @@
-﻿namespace Theme03_Task12
+﻿using System.Text;
+
+namespace Theme03_Task12
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //Дано целое число в диапазоне 100–999.
             //Вывести строку - описание словесное описание данного числа.
             //Если пользователь введёт данные, не соответствующие условию задачи - выдать сообщение об ошибке.
+            Console.OutputEncoding = Encoding.Unicode;
 
             int number;
-            Console.Write("Введите число в диапазоне 100-999: ");
+            Console.Write("Введите целое число в диапазоне 100-999: ");
             number = Convert.ToInt32(Console.ReadLine()); ;
-            int hundreds = number / 100;
-            int tens = (number / 10) % 10;
-            int units = number % 10;
 
+            // Проверка на ошибки.
             if (number < 100 || number > 999)
             {
                 Console.WriteLine("Ошибка! Введите число в диапазоне 100-999.");
             }
 
+            // Разбивка введенного числа на цифры.
+            int hundreds = number / 100;
+            int tens = (number / 10) % 10;
+            int units = number % 10;
+
+            //string description = ""; // Пустая строка для итогового описания.
+
+            // Описание сотен
+            string hundredD = ""; // Cтрока для описания сотен.
+            string tenD = ""; // Строка для описания десяток.
+            string unitD = ""; // Строка для описания десяток.
             switch (hundreds)
             {
-                case 1: description = "сто"; break;
-                case 2: description = "двести"; break;
-                case 3: description = "триста"; break;
-                case 4: description = "четыреста"; break;
-                case 5: description = "пятьсот"; break;
-                case 6: description = "шестьсот"; break;
-                case 7: description = "семьсот"; break;
-                case 8: description = "восемьсот"; break;
-                case 9: description = "девятьсот"; break;
+                case 1: hundredD = "сто"; break;
+                case 2: hundredD = "двести"; break;
+                case 3: hundredD = "триста"; break;
+                case 4: hundredD = "четыреста"; break;
+                case 5: hundredD = "пятьсот"; break;
+                case 6: hundredD = "шестьсот"; break;
+                case 7: hundredD = "семьсот"; break;
+                case 8: hundredD = "восемьсот"; break;
+                case 9: hundredD = "девятьсот"; break;
             }
 
-            // Описание десятков и единиц
             if (tens == 1)
             {
-                string tens = "";
                 switch (units)
                 {
-                    case 0: teens = "десять"; break;
-                    case 1: teens = "одиннадцать"; break;
-                    case 2: teens = "двенадцать"; break;
-                    case 3: teens = "тринадцать"; break;
-                    case 4: teens = "четырнадцать"; break;
-                    case 5: teens = "пятнадцать"; break;
-                    case 6: teens = "шестнадцать"; break;
-                    case 7: teens = "семнадцать"; break;
-                    case 8: teens = "восемнадцать"; break;
-                    case 9: teens = "девятнадцать"; break;
+                    case 0: tenD = "десять"; break;
+                    case 1: tenD = "одиннадцать"; break;
+                    case 2: tenD = "двенадцать"; break;
+                    case 3: tenD = "тринадцать"; break;
+                    case 4: tenD = "четырнадцать"; break;
+                    case 5: tenD = "пятнадцать"; break;
+                    case 6: tenD = "шестнадцать"; break;
+                    case 7: tenD = "семнадцать"; break;
+                    case 8: tenD = "восемнадцать"; break;
+                    case 9: tenD = "девятнадцать"; break;
                 }
-                description += (description.Length > 0 ? " " : "") + teens;
             }
             else
             {
-                // Десятки
-                if (tens > 1)
+                switch (tens)
                 {
-                    string tensStr = "";
-                    switch (tens)
-                    {
-                        case 2: tensStr = "двадцать"; break;
-                        case 3: tensStr = "тридцать"; break;
-                        case 4: tensStr = "сорок"; break;
-                        case 5: tensStr = "пятьдесят"; break;
-                        case 6: tensStr = "шестьдесят"; break;
-                        case 7: tensStr = "семьдесят"; break;
-                        case 8: tensStr = "восемьдесят"; break;
-                        case 9: tensStr = "девяносто"; break;
-                    }
-                    description += (description.Length > 0 ? " " : "") + tensStr;
+                    case 2: tenD = " двадцать"; break;
+                    case 3: tenD = " тридцать"; break;
+                    case 4: tenD = " сорок"; break;
+                    case 5: tenD = " пятьдесят"; break;
+                    case 6: tenD = " шестьдесят"; break;
+                    case 7: tenD = " семьдесят"; break;
+                    case 8: tenD = " восемьдесят"; break;
+                    case 9: tenD = " девяносто"; break;
                 }
 
-                // Единицы
                 if (units > 0)
                 {
-                    string unitsStr = "";
                     switch (units)
                     {
-                        case 1: unitsStr = "один"; break;
-                        case 2: unitsStr = "два"; break;
-                        case 3: unitsStr = "три"; break;
-                        case 4: unitsStr = "четыре"; break;
-                        case 5: unitsStr = "пять"; break;
-                        case 6: unitsStr = "шесть"; break;
-                        case 7: unitsStr = "семь"; break;
-                        case 8: unitsStr = "восемь"; break;
-                        case 9: unitsStr = "девять"; break;
+                        case 1: unitD = "один"; break;
+                        case 2: unitD = "два"; break;
+                        case 3: unitD = "три"; break;
+                        case 4: unitD = "четыре"; break;
+                        case 5: unitD = "пять"; break;
+                        case 6: unitD = "шесть"; break;
+                        case 7: unitD = "семь"; break;
+                        case 8: unitD = "восемь"; break;
+                        case 9: unitD = "девять"; break;
                     }
-                    description += (description.Length > 0 ? " " : "") + unitsStr;
                 }
             }
-            Console.WriteLine($"{number} — «{description}»");
 
-            /*
-
-    // Проверка диапазона
-
-
-    // Получаем отдельные цифры числа
-    int hundreds = number / 100;
-    int tens = (number / 10) % 10;
-    int units = number % 10;
-
-    string result = "";
-
-    // Описание сотен
-    switch (hundreds)
-    {
-        case 1: result += "сто "; break;
-        case 2: result += "двести "; break;
-        case 3: result += "триста "; break;
-        case 4: result += "четыреста "; break;
-        case 5: result += "пятьсот "; break;
-        case 6: result += "шестьсот "; break;
-        case 7: result += "семьсот "; break;
-        case 8: result += "восемьсот "; break;
-        case 9: result += "девятьсот "; break;
-    }
-
-    // Описание десятков и единиц
-    if (tens == 1)
-    {
-        // Особый случай для чисел 10-19
-        switch (units)
-        {
-            case 0: result += "десять"; break;
-            case 1: result += "одиннадцать"; break;
-            case 2: result += "двенадцать"; break;
-            case 3: result += "тринадцать"; break;
-            case 4: result += "четырнадцать"; break;
-            case 5: result += "пятнадцать"; break;
-            case 6: result += "шестнадцать"; break;
-            case 7: result += "семнадцать"; break;
-            case 8: result += "восемнадцать"; break;
-            case 9: result += "девятнадцать"; break;
-        }
-    }
-    else
-    {
-        // Описание десятков (20-99)
-        switch (tens)
-        {
-            case 2: result += "двадцать "; break;
-            case 3: result += "тридцать "; break;
-            case 4: result += "сорок "; break;
-            case 5: result += "пятьдесят "; break;
-            case 6: result += "шестьдесят "; break;
-            case 7: result += "семьдесят "; break;
-            case 8: result += "восемьдесят "; break;
-            case 9: result += "девяносто "; break;
-        }
-
-        // Описание единиц (только если десятки не 1)
-        switch (units)
-        {
-            case 1: result += "один"; break;
-            case 2: result += "два"; break;
-            case 3: result += "три"; break;
-            case 4: result += "четыре"; break;
-            case 5: result += "пять"; break;
-            case 6: result += "шесть"; break;
-            case 7: result += "семь"; break;
-            case 8: result += "восемь"; break;
-            case 9: result += "девять"; break;
-        }
-    }
-
-    Console.WriteLine(result.Trim()); // Удаляем возможные пробелы в конце
-            */
+            Console.WriteLine($"{number} — «{hundredD}" + $"{(tens != 0 ? " " + tenD : "")}" + $"{(units != 0 && tens != 1 ? " " + unitD : "")}».");
+            
             Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();
         }
     }
-}
 }

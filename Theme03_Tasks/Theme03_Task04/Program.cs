@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Вводятся три разных числа. Вывести медиану – промежуточное по величине число.
             double nmr1, nmr2, nmr3;

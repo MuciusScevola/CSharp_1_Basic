@@ -1,5 +1,4 @@
-﻿
-namespace Theme03_Task05
+﻿namespace Theme03_Task05
 {
     internal class Program
     {

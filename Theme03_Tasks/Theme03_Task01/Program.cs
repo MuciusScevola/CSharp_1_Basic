@@ -5,24 +5,21 @@
         static void Main()
         {
             // Вводятся два числа. Сравнить их и вывести правильный знак «<», «>» или «=».
-            int nmr1, nmr2;
+            int a, b;
             Console.WriteLine("Введите первое число:");
-            nmr1 = Convert.ToInt32(Console.ReadLine());
+            a = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите второе число:");
-            nmr2 = Convert.ToInt32(Console.ReadLine());
+            b = Convert.ToInt32(Console.ReadLine());
 
-            if (nmr1 > nmr2)
-            {
-                Console.WriteLine($"{nmr1} > {nmr2}");
-            }
-            else if (nmr1 < nmr2)
-            {
-                Console.WriteLine($"{nmr1} < {nmr2}");
-            }
-            else if (nmr1 == nmr2)
-            {
-                Console.WriteLine($"{nmr1} = {nmr2}");
-            } 
+            if (a > b)
+                Console.WriteLine($"{a} > {b}");
+            else if (a < b)
+                Console.WriteLine($"{a} < {b}");
+            else if (a == b)
+                Console.WriteLine($"{a} = {b}");
+
+            // Все условия в одном тернарном операторе.
+            // Console.WriteLine((a > b) ? $"{a} > {b}." : (a < b) ? $"{a} < {b}." : $"{a} = {b}.");
 
             Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();

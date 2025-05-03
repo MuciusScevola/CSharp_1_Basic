@@ -5,29 +5,43 @@
         static void Main()
         {
             // Вводятся три разных числа. Вывести медиану – промежуточное по величине число.
-            double nmr1, nmr2, nmr3;
+            double a, b, c;
             Console.WriteLine("Введите первое число:");
-            nmr1 = Convert.ToDouble(Console.ReadLine());
+            a = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите второе число:");
-            nmr2 = Convert.ToDouble(Console.ReadLine());
+            b = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите третье число:");
-            nmr3 = Convert.ToDouble(Console.ReadLine());
+            c = Convert.ToDouble(Console.ReadLine());
 
-            var maxNmr = Math.Max(nmr1, Math.Max(nmr2, nmr3));
-            var minNmr = Math.Min(nmr1, Math.Min(nmr2, nmr3));
-            if (nmr1 != maxNmr && nmr1 != minNmr)
-            {
-                Console.WriteLine($"Медиана = {nmr1}");
+            var maxNmr = Math.Max(a, Math.Max(b, c));
+            var minNmr = Math.Min(a, Math.Min(b, c));
+            if (a != maxNmr && a != minNmr)
+                Console.WriteLine($"Медиана = {a}");
+            else if (b != maxNmr && b != minNmr)
+                Console.WriteLine($"Медиана = {a}");
+            else
+                Console.WriteLine($"Медиана = {c}");
 
-            }
-            else if (nmr2 != maxNmr && nmr2 != minNmr)
-            {
-                Console.WriteLine($"Медиана = {nmr1}");
-            }
-            else {
-                Console.WriteLine($"Медиана = {nmr3}");
-            }
-
+            // Другая идея решения заключается в том, чтобы отсортировать числа a, b, c по возрастанию и взять b
+            //if (a > b)
+            //{
+            //    int t = a;
+            //    a = b;
+            //    b = t;
+            //}
+            //if (a > c)
+            //{
+            //    int t = a;
+            //    a = c;
+            //    c = t;
+            //}
+            //if (b > c)
+            //{
+            //    int t = b;
+            //    b = c;
+            //    c = t;
+            //}
+            //Console.WriteLine(b);
 
             Console.WriteLine("\nНажмите любую клавишу.");
             Console.ReadKey();

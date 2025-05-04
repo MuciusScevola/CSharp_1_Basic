@@ -1,6 +1,5 @@
 ﻿using System;
 
-// Базовый класс Building
 public class Building
 {
     protected string _address;
@@ -14,30 +13,27 @@ public class Building
         _yearBuilt = yearBuilt;
     }
 
-    // Виртуальный метод для расчета налога
+    public int BuildingAge
+    {
+        get { return DateTime.Now.Year - _yearBuilt; }
+    }
+
     public virtual double CalculateTax()
     {
         return _area * 1000;
     }
 
-    // Виртуальный метод для вывода информации
     public virtual void DisplayInfo()
     {
-        Console.WriteLine($"Адрес: {_address}");
-        Console.WriteLine($"Площадь: {_area} кв.м");
-        Console.WriteLine($"Год постройки: {_yearBuilt}");
-        Console.WriteLine($"Возраст здания: {BuildingAge} лет");
-        Console.WriteLine($"Налог на здание: {CalculateTax():C}");
+        Console.WriteLine($"Адрес: {_address}.");
+        Console.WriteLine($"Площадь: {_area} кв.м.");
+        Console.WriteLine($"Год постройки: {_yearBuilt}.");
+        Console.WriteLine($"Возраст здания: {BuildingAge} лет.");
+        Console.WriteLine($"Налог на здание: {CalculateTax():C}.");
     }
-
-    // Свойство только для чтения - возраст здания
-    public int BuildingAge
-    {
-        get { return DateTime.Now.Year - _yearBuilt; }
-    }
+    
 }
 
-// Производный класс MultiBuilding (запечатанный - запрещено наследование)
 public sealed class MultiBuilding : Building
 {
     private int _floors;
@@ -50,7 +46,6 @@ public sealed class MultiBuilding : Building
         _hasElevator = hasElevator;
     }
 
-    // Переопределенный метод расчета налога
     public override double CalculateTax()
     {
         double baseTax = base.CalculateTax();
@@ -60,7 +55,6 @@ public sealed class MultiBuilding : Building
         return baseTax * floorsCoefficient + elevatorFee;
     }
 
-    // Переопределенный метод вывода информации
     public override void DisplayInfo()
     {
         base.DisplayInfo();
@@ -69,7 +63,6 @@ public sealed class MultiBuilding : Building
         Console.WriteLine($"Средняя площадь на этаж: {AreaPerFloor:F2} кв.м");
     }
 
-    // Новое свойство только для чтения - средняя площадь на этаж
     public double AreaPerFloor
     {
         get { return _area / _floors; }
@@ -80,8 +73,6 @@ class Program
 {
     static void Main()
     {
-        // Демонстрация работы классов
-
         // 1. Создание объектов обоих типов
         Building house = new Building("ул. Ленина, 10", 120.5, 1995);
         MultiBuilding skyscraper = new MultiBuilding("ул. Гагарина, 42", 25000, 2010, 50, true);
@@ -110,15 +101,11 @@ class Program
 
         // 4. Попытка downcasting для объекта, который не является MultiBuilding
         if (house is MultiBuilding)
-        {
             Console.WriteLine("Этот код не выполнится");
-        }
         else
-        {
             Console.WriteLine("\nhouse не является MultiBuilding - downcasting невозможен");
-        }
 
-        Console.WriteLine("Нажмите любую клавишу.");
+        Console.WriteLine("\nНажмите любую клавишу.");
         Console.ReadKey();
     }
 }

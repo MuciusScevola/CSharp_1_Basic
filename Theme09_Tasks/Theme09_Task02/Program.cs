@@ -55,12 +55,12 @@
                 Balance = 0; // Инициализация баланса.
             }
 
-            public void Deposit(decimal amount) // Пополнения счёта.
+            public void Deposit(decimal amount) // Пополнение счёта.
             {
                 Balance += amount;
             }
 
-            public decimal Withdraw(decimal amount)
+            public void Withdraw(decimal amount) // Вывод со счёта.
             {
                 if (amount > Balance) { throw new InvalidOperationException("Недостаточно средств на счёте."); }
                 Balance -= amount;

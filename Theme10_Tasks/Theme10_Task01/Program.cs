@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text; 
 
 public class Building
 {
@@ -58,9 +59,9 @@ public sealed class MultiBuilding : Building
     public override void DisplayInfo()
     {
         base.DisplayInfo();
-        Console.WriteLine($"Количество этажей: {_floors}");
-        Console.WriteLine($"Наличие лифта: {(_hasElevator ? "Да" : "Нет")}");
-        Console.WriteLine($"Средняя площадь на этаж: {AreaPerFloor:F2} кв.м");
+        Console.WriteLine($"Количество этажей: {_floors}.");
+        Console.WriteLine($"Наличие лифта: {(_hasElevator ? "Да" : "Нет")}.");
+        Console.WriteLine($"Средняя площадь на этаж: {AreaPerFloor:F2} кв.м.");
     }
 
     public double AreaPerFloor
@@ -73,37 +74,39 @@ class Program
 {
     static void Main()
     {
-        // 1. Создание объектов обоих типов
-        Building house = new Building("ул. Ленина, 10", 120.5, 1995);
-        MultiBuilding skyscraper = new MultiBuilding("ул. Гагарина, 42", 25000, 2010, 50, true);
+        Console.OutputEncoding = Encoding.UTF8;
+
+        // 1. Создание объектов обоих типов.
+        Building house = new Building("пр. Ленина, 100", 450, 1965);
+        MultiBuilding highHouse = new MultiBuilding("ул. Папанина, 30", 27790, 2023, 35, true);
 
         Console.WriteLine("Информация о здании:");
         house.DisplayInfo();
 
         Console.WriteLine("\nИнформация о многоэтажном здании:");
-        skyscraper.DisplayInfo();
+        highHouse.DisplayInfo();
 
-        // 2. Upcasting - приведение производного класса к базовому
-        Building building = skyscraper;
+        // 2. Upcasting - приведение производного класса к базовому.
+        Building building = highHouse;
         Console.WriteLine("\nUpcasting - информация через базовый класс:");
-        building.DisplayInfo(); // Вызовется переопределенный метод MultiBuilding
+        building.DisplayInfo(); // Вызовется переопределенный метод MultiBuilding.
 
-        // 3. Downcasting - обратное приведение с проверкой типа
+        // 3. Downcasting - обратное приведение с проверкой типа.
         if (building is MultiBuilding)
         {
             MultiBuilding multiBuilding = (MultiBuilding)building;
             Console.WriteLine("\nDowncasting успешен:");
-            Console.WriteLine($"Площадь на этаж: {multiBuilding.AreaPerFloor:F2} кв.м");
+            Console.WriteLine($"Площадь на этаж: {multiBuilding.AreaPerFloor:F2} кв.м.");
 
-            // Вызов уникального метода производного класса
-            Console.WriteLine($"Налог с учетом всех коэффициентов: {multiBuilding.CalculateTax():C}");
+            // Вызов уникального метода производного класса.
+            Console.WriteLine($"Налог с учетом всех коэффициентов: {multiBuilding.CalculateTax():C}.");
         }
 
-        // 4. Попытка downcasting для объекта, который не является MultiBuilding
+        // 4. Попытка downcasting для объекта, который не является MultiBuilding.
         if (house is MultiBuilding)
-            Console.WriteLine("Этот код не выполнится");
+            Console.WriteLine("Этот код не выполнится.");
         else
-            Console.WriteLine("\nhouse не является MultiBuilding - downcasting невозможен");
+            Console.WriteLine("\nhouse не является MultiBuilding - downcasting невозможен.");
 
         Console.WriteLine("\nНажмите любую клавишу.");
         Console.ReadKey();

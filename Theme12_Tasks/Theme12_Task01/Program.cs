@@ -1,74 +1,85 @@
-﻿namespace Theme12_Task01
+﻿using System.Text;
+
+namespace Theme12_Task01
 {
+
+    public class Book<T, U>
+    {
+        public T Code { get; set; }
+        public string Title { get; set; }
+        public U PublicationYear { get; set; }
+        public string Author { get; set; }
+        public Book(T code, string title, string author, U publicationYear)
+        {
+            Code = code;
+            Title = title;
+            Author = author;
+            PublicationYear = publicationYear;
+        }
+
+        public override string ToString()
+        {
+            return $"Код: {Code} ({typeof(T).Name}), Название: \"{Title}\", Автор: {Author}, Год: {PublicationYear} ({typeof(U).Name})";
+        }
+
+    }
     class Program
     {
-        // Обобщенный класс Book с двумя параметрами типов: T (код) и U (год публикации)
-        public class Book<T, U>
-        {
-            // Свойства класса:
-            public T Code { get; set; }          // Уникальный код книги (тип T)
-            public string Title { get; set; }    // Название книги
-            public U PublicationYear { get; set; } // Год публикации (тип U)
-            public string Author { get; set; }   // Автор книги
-
-            // Конструктор класса, принимающий все параметры
-            public Book(T code, string title, string author, U publicationYear)
-            {
-                Code = code;
-                Title = title;
-                Author = author;
-                PublicationYear = publicationYear;
-            }
-
-            // Переопределение метода ToString() для красивого вывода информации о книге
-            public override string ToString()
-            {
-                return $"Код: {Code} ({typeof(T).Name}), Название: {Title}, Автор: {Author}, Год: {PublicationYear} ({typeof(U).Name})";
-            }
-        }
-
-        // Обобщенный метод для поиска книги по коду
         public static Book<T, U> FindBook<T, U>(Book<T, U>[] books, T code)
         {
-            // Перебираем все книги в массиве
             foreach (var book in books)
             {
-                // Если код текущей книги совпадает с искомым кодом
                 if (book.Code.Equals(code))
-                {
-                    return book; // Возвращаем найденную книгу
-                }
+                { return book; }
             }
-            return null; // Если книга не найдена, возвращаем null
+            return null;
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
-            // Первый массив книг: Code - string, PublicationYear - int
-            Book<string, int>[] libraryBooks = new Book<string, int>[]
+            Console.OutputEncoding = Encoding.UTF8;
+
+            // Массив книг с Code - string, PublicationYear - int.
+            Book<string, int>[] booksA = new Book<string, int>[]
             {
-            new Book<string, int>("F-1234", "Война и мир", "Лев Толстой", 1869),
-            new Book<string, int>("S-5678", "Преступление и наказание", "Федор Достоевский", 1866),
-            new Book<string, int>("T-9012", "Анна Каренина", "Лев Толстой", 1877)
+                new Book<string, int>("B-1233", "La Reine Margot", "Alexandre Dumas", 1845),
+                new Book<string, int>("F-1234", "Хобіт, або вандроўка туды і назад", "Джон Р. Р. Толкін", 2002),
+                new Book<string, int>("D-5678", "Paradise Lost", "John Milton", 1667),
+                new Book<string, int>("C-9012", "Глибинний шлях", "Микола Трублаїні", 1956)
             };
 
-            // Второй массив книг: Code - int, PublicationYear - string
-            Book<int, string>[] archiveBooks = new Book<int, string>[]
+            // Массив книг с Code - int, PublicationYear - string.
+            Book<int, string>[] booksB = new Book<int, string>[]
             {
-            new Book<int, string>(42, "1984", "Джордж Оруэлл", "XX век"),
-            new Book<int, string>(17, "Мастер и Маргарита", "Михаил Булгаков", "XX век"),
-            new Book<int, string>(99, "Гарри Поттер", "Джоан Роулинг", "XXI век")
+                new Book<int, string>(99, "Les Enfants du capitaine Grant", "Jules Verne", "XIX век"),
+                new Book<int, string>(20, "Хроники тестировщика", "Юрий Бригадир", "XX век"),
+                new Book<int, string>(112, "Utopia", "Thomas More", "XVI век"),
+                new Book<int, string>(42, "Српске народне пjесме", "Вук Стефановић Караџић", "XIX век")
             };
 
-            // Поиск и вывод книги с кодом "F-1234" из первого массива
-            var foundBook1 = FindBook(libraryBooks, "F-1234");
-            Console.WriteLine("Найдена книга в библиотеке:");
+            // Вывод массивов.
+            Console.WriteLine("Массив книг с Code - string, PublicationYear - int:");
+            foreach (var book in booksA)
+            { Console.WriteLine(book); }
+
+            Console.WriteLine("\nМассив книг с Code - int, PublicationYear - string:");
+            foreach (var book in booksB)
+            { Console.WriteLine(book); }
+
+            Console.WriteLine();
+
+            // Поиск и вывод книги с кодом "F-1234" из первого массива.
+            var foundBook1 = FindBook(booksA, "F-1234");
+            Console.WriteLine("Найдена книга в массиве A:");
             Console.WriteLine(foundBook1 != null ? foundBook1.ToString() : "Книга не найдена");
 
-            // Поиск и вывод книги с кодом 42 из второго массива
-            var foundBook2 = FindBook(archiveBooks, 42);
-            Console.WriteLine("\nНайдена книга в архиве:");
+            // Поиск и вывод книги с кодом 42 из второго массива.
+            var foundBook2 = FindBook(booksB, 42);
+            Console.WriteLine("\nНайдена книга в массиве B:");
             Console.WriteLine(foundBook2 != null ? foundBook2.ToString() : "Книга не найдена");
+
+            Console.WriteLine("\nНажмите любую клавишу.");
+            Console.ReadKey();
         }
     }
 }

@@ -28,18 +28,17 @@
             Console.WriteLine("Сгенерированный массив:" + $"\n[{string.Join(", ", numbers)}]");
 
             // Демонстрация работы метода Transform.
-
             Transformer doubleTransformer = x => x * 2;
             int[] doubledNumbers = Transform(numbers, doubleTransformer);
-            Console.WriteLine("\nУдвоенные числа:" + $"\n[{string.Join(", ", doubledNumbers)}]");
+            Console.WriteLine("\nУдвоение всех чисел:" + $"\n[{string.Join(", ", doubledNumbers)}]");
 
             Transformer squareTransformer = x => x * x;
             int[] squaredNumbers = Transform(numbers, squareTransformer);
-            Console.WriteLine("\nКвадраты чисел:" + $"\n[{string.Join(", ", squaredNumbers)}]");
+            Console.WriteLine("\nВозведение в квадрат:" + $"\n[{string.Join(", ", squaredNumbers)}]");
 
             Transformer absTransformer = x => Math.Abs(x);
             int[] absNumbers = Transform(numbers, absTransformer);
-            Console.WriteLine("\nМодули чисел:" + $"\n[{string.Join(", ", absNumbers)})");
+            Console.WriteLine("\nЗамена чисел на их модули:" + $"\n[{string.Join(", ", absNumbers)})");
 
             Console.WriteLine("\nНажмите люую клавишу.");
             Console.ReadKey();

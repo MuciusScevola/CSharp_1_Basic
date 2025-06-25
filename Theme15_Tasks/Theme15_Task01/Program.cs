@@ -9,6 +9,7 @@
 //  - вывести весь список, сгруппированный по типу процессора;
 //  - найти самый дорогой и самый бюджетный компьютер;
 //  - есть ли хотя бы один компьютер в количестве не менее 30 штук?
+
 using System;
 using System.Linq;
 using System.Text;
@@ -29,8 +30,14 @@ namespace Theme15_Task01
         public int Quantity { get; set; }
         public override string ToString()
         {
-            return $"{PC_Code,6} | {PC_Mark,8} | {CPU_Type,10} | {CPU_Frequency,12} | {RAM_Volume,7} | {HDD_Volume,7} | {GraphicCard_Volume,9} | {Price,7} | {Quantity,6}";
+            return $" {PC_Code,-5} | {PC_Mark,-8} | {CPU_Type,10} | {CPU_Frequency,12} | {RAM_Volume,7} | {HDD_Volume,7} | {GraphicCard_Volume,9} | {Price,7} | {Quantity,6}";
         }
+        public static string Header()
+        {
+            Console.WriteLine(" Код   | Марка    | Процессор  | Частота, ГГц | RAM, ГБ | HDD, ГБ | Видео, ГБ | Цена, ₽ | Кол-во");
+            Console.WriteLine("-------|----------|------------|--------------|---------|---------|-----------|---------|-------");
+        }
+
     }
 
 }
@@ -76,20 +83,25 @@ internal class Program
             }
         };
 
-        Console.WriteLine(" Код   | Марка    | Процессор  | Частота, ГГц | RAM, ГБ | HDD, ГБ | Видео, ГБ | Цена, ₽ | Кол-во");
-        Console.WriteLine("-------|----------|------------|--------------|---------|---------|-----------|---------|-------");
 
+        Computer.Header();
         foreach (var comp in computers)
         {
             Console.WriteLine(comp.ToString());
         }
 
+        // Поиск по указанному процессору.
+        Console.Write("\nУкажите название процессора: ");
+        string cpuQuery = Console.ReadLine();
+        var cpuFiltered = computers
+            .Where(c => c.CPU_Type.Contains(cpuQuery, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+        Console.WriteLine($"\nКомпьютеры с процессором {cpuQuery}:");
+        cpuFiltered
+            .ForEach(Console.WriteLine);
+
+
         Console.WriteLine("\nНажмите любую клавишу.");
         Console.ReadKey();
-
     }
 }
-
-
-
-

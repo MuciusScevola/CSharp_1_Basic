@@ -23,7 +23,7 @@ namespace Theme16_Task01
                 Thread.Sleep(200);
             }
 
-            Console.WriteLine($"\nСгенерированный массив: [{string.Join(", ", array)}].");
+            Console.WriteLine($"Сгенерированный массив: [{string.Join(", ", array)}].");
             return array;
         }
 
@@ -32,42 +32,45 @@ namespace Theme16_Task01
             if (array == null || array.Length == 0)
                 throw new ArgumentException("\nМассив пуст.");
 
-            Console.WriteLine("Вычисляется среднее.");
-            Thread.Sleep(1500);
+            Console.WriteLine("\nВычисляется среднее арифметическое.");
+            Thread.Sleep(750);
 
             double average = array.Average();
-            Console.WriteLine($"Среднее арифметическое: {average:F2}");
+            Console.WriteLine($"Результат: {average:F2}");
             return average;
         }
 
         static async Task<int[]> GenerateArrayAsync(int n)
         {
-            await Task.Delay(1500);
+            await Task.Delay(750);
             return GenerateArray(n);
         }
 
         static async Task<double> AverageOfArrayAsync(int[] array)
         {
-            Console.WriteLine("\nВычисляется среднее...");
             await Task.Delay(750);
 
             double average = AverageOfArray(array);
-            Console.WriteLine($"\nСреднее арифметическое: {average:F2}");
             return average;
         }
 
+        // 
         static async Task Main()
         {
             Console.WriteLine("Проверка с использованием задач продолжения.");
+            Console.WriteLine();
             Task<int[]> task_1 = Task.Run(() => GenerateArray(10));
-            Task<int[]> task_2 = task_1.ContinueWith(task =>
+            Task task_2 = task_1.ContinueWith(task =>
             {
-                return task.Result;
+                AverageOfArray(task.Result);
             });
 
-            Thread.Sleep(3000); // Пауза между способами проверки.
+            await task_2;
+
+            Thread.Sleep(2000); // Пауза между способами проверки.
 
             Console.WriteLine("\nПроверка с помощью async/await.");
+            Console.WriteLine();
             int[] generatedArray = await GenerateArrayAsync(10);
             await AverageOfArrayAsync(generatedArray);
 

@@ -1,87 +1,92 @@
-﻿namespace Theme13_Task01
+﻿// Реализуйте систему управления умным домом на C# с использованием событий.
+// Система должна отслеживать изменения состояния устройств и уведомлять пользователя о важных событиях.
+// 1. Класс SmartHomeSystem
+// Должен содержать:
+//  Список подключенных устройств(например, свет, термостат, дверные датчики)
+//  Методы для управления устройствами:
+//   TurnOnLight() / TurnOffLight()
+//   SetTemperature(int newTemp)
+//   LockDoor() / UnlockDoor()
+//  Событие DeviceStateChanged, срабатывающее при изменении состояния любого устройства.
+// 2. Событие DeviceStateChanged
+// Должно передавать:
+//   Тип устройства("Light", "Thermostat", "Door")
+//   Новое состояние(например, "On", "Off", "Locked", "Temperature set to 25°C")
+//   Время изменения.
+// 3. Подписка на события в Main
+
+
+namespace Theme13_Task01
 {
-    // Реализуйте систему управления умным домом на C# с использованием событий.
-    // Система должна отслеживать изменения состояния устройств и уведомлять пользователя о важных событиях.
-    // 1. Класс SmartHomeSystem
-    // Должен содержать:
-    //  Список подключенных устройств(например, свет, термостат, дверные датчики)
-    //  Методы для управления устройствами:
-    //   TurnOnLight() / TurnOffLight()
-    //   SetTemperature(int newTemp)
-    //   LockDoor() / UnlockDoor()
-    //  Событие DeviceStateChanged, срабатывающее при изменении состояния любого устройства.
-    // 2. Событие DeviceStateChanged
-    // Должно передавать:
-    //   Тип устройства("Light", "Thermostat", "Door")
-    //   Новое состояние(например, "On", "Off", "Locked", "Temperature set to 25°C")
-    //   Время изменения.
-    // 3. Подписка на события в Main
-    //
-    // Пример лога при работе программы:
-    // [14:30:00] Light: Включен
-    // [14:31:15] Thermostat: Температура изменена на 23°C
-    // [14:35:40] Door: Заблокирована
-
-
-    // Класс для хранения информации о событии изменения состояния устройства
+    // Отслеживание состояния устройств.
     public class DeviceStateInfo
     {
         public string DeviceType { get; }
-        public string NewState { get; }
-        public DateTime ChangeTime { get; }
+        public string StateChange { get; }
+        public DateTime TimeChange { get; }
 
-        public DeviceStateInfo(string deviceType, string newState, DateTime changeTime)
+        public DeviceStateInfo(string deviceType, string stateChange, DateTime timeChange)
         {
             DeviceType = deviceType;
-            NewState = newState;
-            ChangeTime = changeTime;
+            StateChange = stateChange;
+            TimeChange = timeChange;
         }
     }
 
-    // Класс умного дома
-    public class SmartHomeSystem
+    // Система умного дома.
+    public class SmarthomeSystem
     {
-        // Состояния устройств
-        private bool isLightOn = false;
-        private int currentTemperature = 20;
-        private bool isDoorLocked = true;
+        public event Action<DeviceStateInfo> DeviceStateChanged; // Событие для уведомления.
+        
+        private bool _isLightOn = false;
+        private int _currentTemperature = 10;
+        private bool _isDoorOpen = false;
 
-        // Делегат для события изменения состояния
-        public delegate void DeviceStateChangedHandler(DeviceStateInfo info);
-
-        // Событие изменения состояния устройства
-        public event DeviceStateChangedHandler DeviceStateChanged;
-
-        // Методы управления устройствами
-
+        // Управление освещением.
         public void TurnOnLight()
         {
-            isLightOn = true;
-            OnDeviceStateChanged("Light", "Включен");
+            if (!_isLightOn)
+            {
+                _isLightOn = true;
+                OnDeviceStateChanged("Light", "On");
+            }
         }
 
         public void TurnOffLight()
         {
-            isLightOn = false;
-            OnDeviceStateChanged("Light", "Выключен");
+            if (_isLightOn)
+            {
+                _isLightOn = false;
+                OnDeviceStateChanged("Light", "Off");
+            }
         }
 
+        // Управление термостатом.
         public void SetTemperature(int newTemp)
         {
-            currentTemperature = newTemp;
-            OnDeviceStateChanged("Thermostat", $"Температура изменена на {newTemp}°C");
+            if (_currentTemperature != newTemp)
+            {
+                _currentTemperature = newTemp;
+                OnDeviceStateChanged("Thermostat", $"Temperture set to {newTemp}°C");
+            }
         }
-
+        // Управление дверью.
         public void LockDoor()
         {
-            isDoorLocked = true;
-            OnDeviceStateChanged("Door", "Заблокирована");
+            if (_isDoorOpen)
+            {
+                _isDoorOpen = false;
+                OnDeviceStateChanged("Door", "Locked");
+            }
         }
 
         public void UnlockDoor()
         {
-            isDoorLocked = false;
-            OnDeviceStateChanged("Door", "Разблокирована");
+            if (!_isDoorOpen)
+            {
+                _isDoorOpen = true;
+                OnDeviceStateChanged("Door", "Unlocked");
+            }
         }
 
         // Метод для вызова события
@@ -93,24 +98,19 @@
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            // Создаем систему умного дома
-            var smartHome = new SmartHomeSystem();
+            var smartHome = new SmarthomeSystem();
 
-            // Подписываемся на событие изменения состояния
             smartHome.DeviceStateChanged += (info) =>
             {
-                Console.WriteLine($"[{info.ChangeTime.ToString("HH:mm:ss")}] {info.DeviceType}: {info.NewState}");
+                Console.WriteLine($"[{info.TimeChange.ToString("HH:mm:ss")}] {info.DeviceType}: {info.StateChange}");
             };
 
-            // Тестируем работу системы
+            smartHome.SetTemperature(20);
+            smartHome.UnlockDoor();
             smartHome.TurnOnLight();
-            System.Threading.Thread.Sleep(1000); // Имитация задержки между событиями
-
-            smartHome.SetTemperature(23);
-            System.Threading.Thread.Sleep(1000);
-
+            smartHome.TurnOffLight();
             smartHome.LockDoor();
 
             Console.WriteLine("\nНажмите люую клавишу.");

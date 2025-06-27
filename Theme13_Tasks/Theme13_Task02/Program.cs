@@ -36,7 +36,7 @@ namespace Theme13_Task01
     // Система умного дома.
     public class SmarthomeSystem
     {
-        public event Action<DeviceStateInfo> DeviceStateChanged; // Событие для уведомления.
+        public event Action<DeviceStateInfo>? DeviceStateChanged; // Событие для уведомления.
         
         private bool _isLightOn = false;
         private int _currentTemperature = 10;
